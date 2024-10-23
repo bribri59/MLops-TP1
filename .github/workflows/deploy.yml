@@ -20,6 +20,4 @@ jobs:
 
       - name: Install sshpass and deploy
         run: |
-          sudo apt-get update
-          sudo apt-get install -y sshpass
           sshpass -p "${{ secrets.VM_PASSWORD }}" ssh -o StrictHostKeyChecking=no ubuntu@20.86.55.5 "cd briac.six && docker-compose pull && docker-compose up -d"
