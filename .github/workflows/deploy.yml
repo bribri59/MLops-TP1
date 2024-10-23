@@ -14,7 +14,7 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t <dockerhub_username>/house-price-api .
+          docker build -t briac.six/house-price-api .
           echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
           docker push briac.six/house-price-api
 
