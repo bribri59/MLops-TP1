@@ -20,5 +20,9 @@ jobs:
 
       - name: Install sshpass and deploy
         run: |
-          sshpass -p "Supermotdepasse!42" ssh -o StrictHostKeyChecking=no ubuntu@20.86.55.5 "cd briac.six && docker-compose pull && docker-compose up -d"
+          sshpass -p "Supermotdepasse!42" ssh -o StrictHostKeyChecking=no ubuntu@20.86.55.5 "
+            docker pull briac596/house-price-api:latest &&
+            docker stop my_app_container &&
+            docker rm my_app_container &&
+            docker run -d --name my_app_container -p 8081:8000 briac596/house-price-api:latest"
 
